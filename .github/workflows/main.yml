@@ -1,0 +1,43 @@
+import os
+
+def hitung_kasir():
+    # Daftar Harga Menu
+    harga_soto = 15000
+    harga_rawon = 20000
+
+    print("====================================")
+    print("        APLIKASI MINI KASIR         ")
+    print("====================================")
+    print(f"1. Soto  : Rp {harga_soto:,}")
+    print(f"2. Rawon : Rp {harga_rawon:,}")
+    print("====================================")
+
+    try:
+        # Input jumlah pesanan
+        jml_soto = int(input("Masukkan jumlah porsi Soto  : ") or 0)
+        jml_rawon = int(input("Masukkan jumlah porsi Rawon : ") or 0)
+        
+        # Hitung Total
+        total_soto = jml_soto * harga_soto
+        total_rawon = jml_rawon * harga_rawon
+        total_bayar = total_soto + total_rawon
+
+        print("\n====================================")
+        print("          Rincian Pembayaran         ")
+        print("====================================")
+        if jml_soto > 0:
+            print(f"Soto  x{jml_soto} : Rp {total_soto:,}")
+        if jml_rawon > 0:
+            print(f"Rawon x{jml_rawon} : Rp {total_rawon:,}")
+        print("------------------------------------")
+        print(f"TOTAL BAYAR   : Rp {total_bayar:,}")
+        print("====================================")
+        
+    except ValueError:
+        print("\n[Error] Harap masukkan angka yang valid!")
+    
+    # Menahan layar console agar tidak langsung tertutup saat dieksekusi sebagai .exe
+    input("\nTekan Enter untuk keluar...")
+
+if __name__ == "__main__":
+    hitung_kasir()
